@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rigidbody;
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 2f;
 
     [SerializeField] int currentHealth = 5;
     [SerializeField] GameObject gameOverObj;
@@ -27,6 +28,11 @@ public class Player : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         var moveDirection = horizontalInput * new Vector3(1, 0, 0);
         rigidbody.AddForce(moveDirection * moveSpeed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
+        }
     }
 
     public void TakeDamage()
