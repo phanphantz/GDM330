@@ -113,19 +113,61 @@ TextureImporter:
       name: Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 328
-        width: 160
-        height: 111
+        x: 8
+        y: 280
+        width: 241
+        height: 159
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 11, z: 12, w: 29}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: fa2504911f9b04d4794bcea2d80e4da2
       internalID: 1319667412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_1
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 428
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4873dcfdcce34ef682203eae4cf04a0
+      internalID: -137839388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_2
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 373
+        width: 58
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddb5bd3e2336456c96128d99d4978f3
+      internalID: -1458755788
       vertices: []
       indices: 
       edges: []
@@ -142,6 +184,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_0: 1319667412
+      Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_1: -137839388
+      Game Boy Advance - Pokemon FireRed LeafGreen - Interface & Bag Screens_2: -1458755788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
