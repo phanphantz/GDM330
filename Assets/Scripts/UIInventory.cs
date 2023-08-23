@@ -21,6 +21,7 @@ namespace Pokemon.InventorySystem
 
         void Start()
         {
+            //Make sure to hide original blueprint of UIItem at the start.
             itemUIPrefab.gameObject.SetActive(false);
         }
 
@@ -38,16 +39,22 @@ namespace Pokemon.InventorySystem
 
         public void SetItemList(UIItem_Data[] uiDatas)
         {
+            //Clear and destroy created UIs first, before creating new ones.
             ClearAllItemUIs();
             foreach (var uiItemData in uiDatas)
             {
+                //When creating a new UI, ALWAYS put it inside Canvas. and pass false for 'worldPositionStays'
+                //This is because all UIs are always in Screen Space not World Space.
                 var newItemUI = Instantiate(itemUIPrefab,itemUIPrefab.transform.parent,false);
+                
+                //Don't forget to enable it. Because the original UIItem was disabled from Start()
                 newItemUI.gameObject.SetActive(true);
                 itemUIList.Add(newItemUI);
                 newItemUI.SetData(uiItemData);
             }
         }
 
+        //Destroy all created UIItem and then clear the list.
         public void ClearAllItemUIs()
         {
             foreach (UIItem uiItem in itemUIList)
