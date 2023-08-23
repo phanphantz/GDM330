@@ -11,6 +11,7 @@ namespace Pokemon.InventorySystem
 
         public ItemData[] GetItemsByType(ItemType targetType)
         {
+            //Create a list that will hold all the items that matched the targetType
             var resultList = new List<ItemData>();
             foreach (var itemData in itemList)
             {
@@ -18,6 +19,7 @@ namespace Pokemon.InventorySystem
                     resultList.Add(itemData);
             }
 
+            //Return the result as Array not List. Because we don't want caller to modify the result afterward.
             return resultList.ToArray();
         }
 
