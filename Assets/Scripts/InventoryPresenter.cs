@@ -8,15 +8,15 @@ namespace Pokemon.InventorySystem
     {
         int currentItemIndex;
         int currentCategoryIndex;
-        int pageSize = 6;
 
         int maxShownItemCount;
         int maxCategoryCount = 4;
-        
-        ItemType currentCategory => (ItemType)currentCategoryIndex;
-        
+        int pageSize = 6;
+
         [SerializeField] UIInventory ui;
         [SerializeField] Inventory inventory;
+        
+        //This list tells the UI what name and icon to set for each category.
         [SerializeField] List<CategoryInfo> categoryInfoList = new List<CategoryInfo>();
 
         void Start()
@@ -88,27 +88,38 @@ namespace Pokemon.InventorySystem
             var currentCategoryInfo = categoryInfoList[currentCategoryIndex];
             ui.SetCategory(currentCategoryInfo);
 
+            //From our int 'currentCategoryIndex', cast it into 'ItemType'.
+            var currentCategory = (ItemType)currentCategoryIndex;
+            
+            //Get only items that matched current category.
             var itemsToDisplay = inventory.GetItemsByType(currentCategory);
             maxShownItemCount = itemsToDisplay.Length;
-
+            
+            //Clear everything and cancel if there are no items with the current category.
             if (maxShownItemCount <= 0)
             {
                 ui.ClearAllItemUIs();
                 return;
             }
             
+            //Current item is retrieved from itemsToDisplay using 'currentItemIndex'
             var currentItem = itemsToDisplay[currentItemIndex];
             ui.SetCurrentItemInfo(currentItem);
-            
+
+            //This will hold list of UIItem_Data for the display of UIItem
             var uiDataList = new List<UIItem_Data>();
 
+            //First find out what page we are in. 
             var currentPageIndex = currentItemIndex / pageSize;
+            
+            //Then find range of index that we want to draw.
             var startIndexToDisplay = currentPageIndex * pageSize;
             var endIndexToDisplay = startIndexToDisplay + pageSize;
             
             var i = 0;
             foreach (var item in itemsToDisplay)
             {
+                //Select only item within start and end index and add to list.
                 if (i >= startIndexToDisplay && i < endIndexToDisplay)
                 {
                     uiDataList.Add(new UIItem_Data(item, currentItem == item));
@@ -116,7 +127,8 @@ namespace Pokemon.InventorySystem
               
                 i++;
             }
-
+            
+            //Draw the results! Convert to array to prevent the results from being changed accidentally.
             ui.SetItemList(uiDataList.ToArray());
         }
     }
