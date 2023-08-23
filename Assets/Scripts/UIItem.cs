@@ -17,6 +17,7 @@ namespace Pokemon.InventorySystem
         }
     }
 
+    //Create a DTO class that hold information of the item and also tell is the item is selected.
     public class UIItem_Data
     {
         public ItemData itemData;
