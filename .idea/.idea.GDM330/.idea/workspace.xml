@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fc4cd9d-22e1-4e9f-92e3-554018f33ba3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDM330/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDM330/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/ColumnDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/ColumnDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Gameloop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Gameloop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Hp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Hp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Player_collider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Player_collider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692878815783</updated>
       <workItem from="1692878821151" duration="5635000" />
-      <workItem from="1692992273460" duration="198000" />
+      <workItem from="1692992273460" duration="410000" />
     </task>
     <servers />
   </component>
