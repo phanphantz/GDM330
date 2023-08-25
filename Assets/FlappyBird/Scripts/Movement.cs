@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Movement : MonoBehaviour
-{   
-    public Gameloop gameLoop;
-    public Rigidbody2D myRigidbody2D;
-    public Animator animator;
-    public float jumpForce;
-    public bool isDead = false;
-    // Update is called once per frame
-    void Update()
+
+namespace SuperGame.FlappyBird
+{
+    public class Movement : MonoBehaviour
     {
-        animator.SetBool("idle", true);
-        if (!isDead)
+        public Gameloop gameLoop;
+        public Rigidbody2D myRigidbody2D;
+        public Animator animator;
+        public float jumpForce;
+
+        public bool isDead = false;
+
+        // Update is called once per frame
+        void Update()
         {
-            if ((Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Mouse0))&&gameLoop.GameIsRunning)
+            animator.SetBool("idle", true);
+            if (!isDead)
             {
-                //Debug.Log("jump");
-                myRigidbody2D.velocity = new Vector2(0, 0);
-                myRigidbody2D.AddForce(jumpForce * Vector2.up);
-                animator.SetTrigger("Jump");
-            }            
-        }
-        else
-        {
-            animator.SetBool("die", true);
-            animator.SetBool("idle", false);
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && gameLoop.GameIsRunning)
+                {
+                    //Debug.Log("jump");
+                    myRigidbody2D.velocity = new Vector2(0, 0);
+                    myRigidbody2D.AddForce(jumpForce * Vector2.up);
+                    animator.SetTrigger("Jump");
+                }
+            }
+            else
+            {
+                animator.SetBool("die", true);
+                animator.SetBool("idle", false);
+            }
         }
     }
 }
