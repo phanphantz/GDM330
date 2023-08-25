@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.phun.phengine.core": {
+      "version": "https://github.com/phanphantz/PhEngine-Core.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "425e5e973e5665f1fd2f0323139be2f9b6b69c65"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
