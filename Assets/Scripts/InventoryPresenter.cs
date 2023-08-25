@@ -58,7 +58,7 @@ namespace Pokemon.InventorySystem
         {
             if (currentCategoryIndex >= maxCategoryCount - 1)
                 return;
-            
+
             currentCategoryIndex++;
             currentItemIndex = 0;
             RefreshUI();
@@ -101,7 +101,7 @@ namespace Pokemon.InventorySystem
                 ui.ClearAllItemUIs();
                 return;
             }
-            
+
             //Current item is retrieved from itemsToDisplay using 'currentItemIndex'
             var currentItem = itemsToDisplay[currentItemIndex];
             ui.SetCurrentItemInfo(currentItem);
@@ -114,15 +114,16 @@ namespace Pokemon.InventorySystem
             
             //Then find range of index that we want to draw.
             var startIndexToDisplay = currentPageIndex * pageSize;
-            var endIndexToDisplay = startIndexToDisplay + pageSize;
+            var endIndexToDisplay = startIndexToDisplay + pageSize -1;
             
             var i = 0;
             foreach (var item in itemsToDisplay)
             {
                 //Select only item within start and end index and add to list.
-                if (i >= startIndexToDisplay && i < endIndexToDisplay)
+                if (i >= startIndexToDisplay && i <= endIndexToDisplay)
                 {
-                    uiDataList.Add(new UIItem_Data(item, currentItem == item));
+                    var uiData = new UIItem_Data(item, currentItem == item);
+                    uiDataList.Add(uiData);
                 }
               
                 i++;
