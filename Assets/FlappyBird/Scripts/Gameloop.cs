@@ -21,14 +21,14 @@ namespace SuperGame.FlappyBird
 
         void PauseGame()
         {
-            Time.timeScale = 0;
+            GameManager.Instance.Pause();
             Player.GetComponent<Rigidbody2D>().gravityScale = 0;
             GameIsRunning = false;
         }
 
         public void ResumeGame()
         {
-            Time.timeScale = 1;
+            GameManager.Instance.Resume();
             Player.GetComponent<Rigidbody2D>().gravityScale = 1;
             GameIsRunning = true;
         }
@@ -53,7 +53,7 @@ namespace SuperGame.FlappyBird
 
         public void RestartGame()
         {
-            SceneManager.LoadScene(0);
+            GameManager.Instance.Lose();
         }
 
         private void Update()

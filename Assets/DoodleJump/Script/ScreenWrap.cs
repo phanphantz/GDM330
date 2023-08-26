@@ -46,7 +46,7 @@ namespace SuperGame.DoodleJump
 
         private void LoadScene()
         {
-            SceneManager.LoadScene("SampleScene");
+            GameManager.Instance.Lose();
         }
     }
 }

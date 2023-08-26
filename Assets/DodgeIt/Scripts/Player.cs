@@ -28,11 +28,6 @@ public class Player : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         var moveDirection = horizontalInput * new Vector3(1, 0, 0);
         rigidbody.AddForce(moveDirection * moveSpeed);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
-        }
     }
 
     public void TakeDamage()

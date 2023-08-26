@@ -57,7 +57,7 @@ namespace SuperGame.SubwaySurfer2D
                 }
                 else
                 {
-                    SceneManager.LoadScene("SampleScene");
+                    GameManager.Instance.Lose();
                 }
             }
         }
@@ -67,7 +67,7 @@ namespace SuperGame.SubwaySurfer2D
             playerHealth--;
             if (playerHealth == 0)
             {
-                SceneManager.LoadScene("SampleScene");
+                GameManager.Instance.Lose();
             }
 
             HealthUI();

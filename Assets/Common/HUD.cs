@@ -17,7 +17,9 @@ namespace SuperGame
         [SerializeField] Image countdownGaugeImage;
         [SerializeField] TMP_Text gameEndCountdownTimeText;
 
-        [Header("End Game")] [SerializeField] CanvasGroup endGameMenuCanvasGroup;
+        [Header("End Game")] 
+        [SerializeField] CanvasGroup endGameMenuCanvasGroup;
+        [SerializeField] TMP_Text resultText;
         [SerializeField] Button restartButton;
         [SerializeField] Button nextLevel;
 
@@ -62,11 +64,11 @@ namespace SuperGame
             }
         }
 
-        public void SetEndGameUIVisible(bool isVisible, bool isGameOver)
+        public void SetEndGameUIVisible(bool isVisible, bool isLose)
         {
-            endGameMenuCanvasGroup.blocksRaycasts = isVisible;
-            endGameMenuCanvasGroup.alpha = isVisible ? 1 : 0;
-            nextLevel.interactable = !isGameOver;
+            resultText.text = isLose ? "You Lose!" : "Level Cleared!";
+            endGameMenuCanvasGroup.gameObject.SetActive(isVisible);
+            nextLevel.interactable = !isLose;
         }
         
         public void SetLevel(int level)

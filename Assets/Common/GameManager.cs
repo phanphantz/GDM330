@@ -12,12 +12,15 @@ namespace SuperGame
         [SerializeField] float timeScaleToAdd = 0.1f;
         [SerializeField] int maxLifeCount = 3;
         [SerializeField] int lifeCount;
-        [SerializeField] int currentLevel = 0;
+        [SerializeField] int currentScene = 0;
+        [SerializeField] int currentLevel = 1;
 
         [SerializeField] List<string> levelList = new List<string>();
         [SerializeField] string lastPlayedScene;
 
         [SerializeField] HUD hud;
+        bool isPaused;
+        bool isLost;
 
         protected override void InitAfterAwake()
         {
@@ -37,34 +40,50 @@ namespace SuperGame
 
         void Update()
         {
-            levelEndTimer.PassTime();
+            if (!isPaused)
+                levelEndTimer.PassTime();
         }
 
         void StartLevel()
         {
+            isLost = false;
             levelEndTimer.Start();
-            Time.timeScale = 1f + (timeScaleToAdd * currentLevel);
-            lastPlayedScene = levelList[currentLevel];
+            Resume();
+            lastPlayedScene = levelList[currentScene];
             hud.SetGameEndCountdownTime(levelEndTimer.duration, levelEndTimer.duration);
         }
-        
+
+        public void Resume()
+        {
+            isPaused = false;
+            Time.timeScale = 1f + (timeScaleToAdd * currentLevel);
+        }
+
         void EndLevel()
         {
-            Time.timeScale = 0f;
+            Pause();
             hud.SetEndGameUIVisible(true, false);
+        }
+
+        public void Pause()
+        {
+            isPaused = true;
+            Time.timeScale = 0f;
         }
 
         public void Lose()
         {
-            Time.timeScale = 0f;
+            if (isLost)
+                return;
+
+            isLost = true;
+            Pause();
             lifeCount--;
-            if (lifeCount == 0)
-                hud.SetEndGameUIVisible(true, true);
-            
             hud.SetLifeCount(lifeCount);
+            hud.SetEndGameUIVisible(true, true);
         }
 
-        public void Restart()
+        void Restart()
         {
             if (lifeCount == 0)
             {
@@ -73,27 +92,28 @@ namespace SuperGame
             }
             else
             {
-                LoadScene(levelList[currentLevel]);
+                LoadScene(levelList[currentScene]);
             }
         }
 
-        public void Reset()
+        void Reset()
         {
             lifeCount = maxLifeCount;
-            currentLevel = 0;
-            
+            currentLevel = 1;
+            currentScene = 0;
             hud.SetLifeCount(lifeCount);
             hud.SetLevel(currentLevel);
         }
 
-        public void MoveToNextLevel()
+        void MoveToNextLevel()
         {
             currentLevel++;
-            if (currentLevel >= levelList.Count)
-                currentLevel = 0;
+            currentScene++;
+            if (currentScene >= levelList.Count)
+                currentScene = 0;
             
             hud.SetLevel(currentLevel);
-            LoadScene(levelList[currentLevel]);
+            LoadScene(levelList[currentScene]);
         }
 
         void LoadScene(string sceneName)
