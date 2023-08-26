@@ -1,29 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+namespace SuperGame.DodgeIt
 {
-    [SerializeField] float speed = 3f;
-    void Start()
+    public class Obstacle : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.TryGetComponent<Player>(out var player))
+        [SerializeField] float speed = 3f;
+        void Start()
         {
-            player.TakeDamage();
-        }
         
-        Destroy(gameObject);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position += new Vector3(0, -speed * Time.deltaTime, 0);
+        }
+
+        void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.TryGetComponent<Player>(out var player))
+            {
+                player.TakeDamage();
+            }
+        
+            Destroy(gameObject);
+        }
     }
 }

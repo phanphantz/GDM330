@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using PhEngine.Core;
 using UnityEngine;
@@ -8,17 +7,21 @@ namespace SuperGame
 {
     public class GameManager : Singleton<GameManager>
     {
+        [Header("Gameplay")]
         [SerializeField] CountdownTimer levelEndTimer;
-        [SerializeField] float timeScaleToAdd = 0.1f;
         [SerializeField] int maxLifeCount = 3;
         [SerializeField] int lifeCount;
-        [SerializeField] int currentScene = 0;
+        [SerializeField] float timeScaleToAdd = 0.1f;
+        
+        [Header("Level")]
         [SerializeField] int currentLevel = 1;
-
+        [SerializeField] int currentScene = 0;
         [SerializeField] List<string> levelList = new List<string>();
         [SerializeField] string lastPlayedScene;
 
+        [Header("UI")]
         [SerializeField] HUD hud;
+        
         bool isPaused;
         bool isLost;
 
@@ -28,7 +31,16 @@ namespace SuperGame
             SetupHUD();
             StartLevel();
         }
-
+        
+        void Reset()
+        {
+            lifeCount = maxLifeCount;
+            currentLevel = 1;
+            currentScene = 0;
+            hud.SetLifeCount(lifeCount);
+            hud.SetLevel(currentLevel);
+        }
+        
         void SetupHUD()
         {
             levelEndTimer.OnDone += EndLevel;
@@ -95,16 +107,7 @@ namespace SuperGame
                 LoadScene(levelList[currentScene]);
             }
         }
-
-        void Reset()
-        {
-            lifeCount = maxLifeCount;
-            currentLevel = 1;
-            currentScene = 0;
-            hud.SetLifeCount(lifeCount);
-            hud.SetLevel(currentLevel);
-        }
-
+        
         void MoveToNextLevel()
         {
             currentLevel++;
