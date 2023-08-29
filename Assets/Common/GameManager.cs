@@ -21,6 +21,9 @@ namespace SuperGame
 
         [Header("UI")]
         [SerializeField] HUD hud;
+
+        [Header("BGM")]
+        [SerializeField] AudioSource bgm;
         
         bool isPaused;
         bool isGameOver;
@@ -68,7 +71,9 @@ namespace SuperGame
         public void Resume()
         {
             isPaused = false;
-            Time.timeScale = 1f + (timeScaleToAdd * currentLevel);
+            var currentTimeScale = 1f + (timeScaleToAdd * ((currentLevel-1)/levelList.Count));
+            Time.timeScale = currentTimeScale;
+            bgm.pitch = currentTimeScale;
         }
 
         void EndLevel()
