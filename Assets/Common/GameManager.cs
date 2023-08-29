@@ -23,7 +23,7 @@ namespace SuperGame
         [SerializeField] HUD hud;
         
         bool isPaused;
-        bool isLost;
+        bool isGameOver;
 
         protected override void InitAfterAwake()
         {
@@ -58,7 +58,7 @@ namespace SuperGame
 
         void StartLevel()
         {
-            isLost = false;
+            isGameOver = false;
             levelEndTimer.Start();
             Resume();
             lastPlayedScene = levelList[currentScene];
@@ -85,10 +85,10 @@ namespace SuperGame
 
         public void Lose()
         {
-            if (isLost)
+            if (isGameOver)
                 return;
 
-            isLost = true;
+            isGameOver = true;
             Pause();
             lifeCount--;
             hud.SetLifeCount(lifeCount);
