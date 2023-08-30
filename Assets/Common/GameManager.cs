@@ -80,6 +80,7 @@ namespace SuperGame
 
         void EndLevel()
         {
+            AudioManager.Instance.Play("victory");
             Pause();
             hud.SetEndGameUIVisible(true, false);
         }
@@ -95,6 +96,7 @@ namespace SuperGame
             if (isGameOver)
                 return;
 
+            AudioManager.Instance.Play("lose");
             isGameOver = true;
             Pause();
             lifeCount--;

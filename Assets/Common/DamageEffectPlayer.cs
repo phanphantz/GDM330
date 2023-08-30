@@ -14,6 +14,7 @@ namespace SuperGame
 
         public void PlayOn(SpriteRenderer spriteRenderer)
         {
+            AudioManager.Instance.Play("hurt");
             StartCoroutine(ChangeColorTemporarily(spriteRenderer));
         }
         

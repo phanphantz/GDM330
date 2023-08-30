@@ -17,10 +17,12 @@ namespace SuperGame.DoodleJump
         {
             if(other.gameObject.tag == "ground")
             { 
+                AudioManager.Instance.Play("jump");
                 rb.AddForce(Vector2.up*jumpforce);
             }
             if(other.gameObject.tag == "Superjump")
             { 
+                AudioManager.Instance.Play("jump");
                 rb.AddForce(Vector2.up*jumpforce*jumpboost);
             }
         }

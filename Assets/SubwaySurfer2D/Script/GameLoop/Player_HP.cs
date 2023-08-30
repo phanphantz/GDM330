@@ -78,7 +78,7 @@ namespace SuperGame.SubwaySurfer2D
         public void GetCoins()
         {
             coinScore = coinScore + 5;
-
+            AudioManager.Instance.Play("coin");
             CoinScoreUI();
         }
 

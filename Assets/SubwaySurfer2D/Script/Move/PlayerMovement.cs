@@ -61,8 +61,13 @@ namespace SuperGame.SubwaySurfer2D
                     left = true;
                 }
             }
+
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                AudioManager.Instance.Play("jump");
                 StartCoroutine("Jump");
+            }
+            
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
     }

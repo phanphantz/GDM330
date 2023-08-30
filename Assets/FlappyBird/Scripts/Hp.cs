@@ -58,6 +58,7 @@ namespace SuperGame.FlappyBird
 
         private IEnumerator ChangeColorTemporarily()
         {
+            AudioManager.Instance.Play("hurt");
             spriteRenderer.color = damageColor; // Change to damage color
 
             yield return new WaitForSeconds(0.2f); // Change color temporarily for 0.2 seconds
