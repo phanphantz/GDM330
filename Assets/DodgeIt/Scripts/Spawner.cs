@@ -25,7 +25,7 @@ namespace SuperGame.DodgeIt
             else
             {
                 var newObstacle = Instantiate(prefab, GetRandomSpawnPosition(), Quaternion.identity);
-                currentDelay = targetDelay;
+                currentDelay = targetDelay / DifficultyManager.Instance.DifficultyLevel;
             }
         }
 

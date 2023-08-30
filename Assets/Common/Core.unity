@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d4732ce85f40f19983b90769112808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLevel: 0
+  difficultyLevel: 1
   difficultyUI: {fileID: 663842208}
 --- !u!1 &1633822921
 GameObject:

@@ -31,7 +31,7 @@ namespace SuperGame.DoodleJump
 
         private void GenerateInitialPlatforms()
         {
-            for (int i = 0; i < numberOfPlatforms; i++)
+            for (int i = 0; i < numberOfPlatforms / DifficultyManager.Instance.DifficultyLevel; i++)
             {
                 GeneratePlatform();
             }

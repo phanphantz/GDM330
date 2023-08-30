@@ -15,7 +15,7 @@ namespace SuperGame.SubwaySurfer2D
         // Start is called before the first frame update
         void Start()
         {
-            Invoke("ObstructionRandom", delay);
+            Invoke("ObstructionRandom", delay / DifficultyManager.Instance.DifficultyLevel);
         }
 
         // Update is called once per frame

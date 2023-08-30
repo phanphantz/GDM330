@@ -25,7 +25,7 @@ namespace SuperGame.FlappyBird
                 GameObject topPillar = Instantiate(pillarPrefab,
                     transform.position + new Vector3(0, gapSize + randomY, 0), Quaternion.identity);
                 topPillar.transform.localScale = new Vector3(1f, -1f, 1f);
-                yield return new WaitForSeconds(spawnInterval);
+                yield return new WaitForSeconds(spawnInterval / DifficultyManager.Instance.DifficultyLevel);
             }
         }
 
