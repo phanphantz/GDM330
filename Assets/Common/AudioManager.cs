@@ -17,7 +17,15 @@ namespace SuperGame
 
         public void Play(string id)
         {
-            //audioSource.Play(targetClip);
+            foreach (var record in recordList)
+            {
+                if (record.id == id)
+                {
+                    var newAudioSource = Instantiate(audioSource, transform, true);
+                    newAudioSource.clip = record.clip;
+                    newAudioSource.Play();
+                }
+            }
         }
     }
 
