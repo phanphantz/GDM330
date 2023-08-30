@@ -16,7 +16,7 @@ namespace SuperGame.FlappyBird
         // Update is called once per frame
         void Update()
         {
-            animator.SetBool("idle", true);
+            SetIsIdle(true);
             if (!isDead)
             {
                 if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && gameLoop.GameIsRunning)
@@ -31,8 +31,13 @@ namespace SuperGame.FlappyBird
             else
             {
                 animator.SetBool("die", true);
-                animator.SetBool("idle", false);
+                SetIsIdle(false);
             }
+        }
+
+        void SetIsIdle(bool value)
+        {
+            animator.SetBool("idle", value);
         }
     }
 }

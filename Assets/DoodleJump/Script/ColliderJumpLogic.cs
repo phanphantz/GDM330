@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SuperGame.DoodleJump
 {
-   public class Check : MonoBehaviour
+   public class ColliderJumpLogic : MonoBehaviour
    {
       public CapsuleCollider2D cap;
       void OnTriggerStay2D(Collider2D other)

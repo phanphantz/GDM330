@@ -15,19 +15,22 @@ namespace SuperGame.DoodleJump
         }
         void OnCollisionEnter2D(Collision2D other)
         {
-            if(other.gameObject.tag == "ground")
+            var otherObjectTag = other.gameObject.tag;
+            if(otherObjectTag == "ground")
             { 
-                AudioManager.Instance.Play("jump");
+                PlayJumpSound();
                 rb.AddForce(Vector2.up*jumpforce);
             }
-            if(other.gameObject.tag == "Superjump")
+            if(otherObjectTag == "Superjump")
             { 
-                AudioManager.Instance.Play("jump");
+                PlayJumpSound();
                 rb.AddForce(Vector2.up*jumpforce*jumpboost);
             }
         }
 
-    
-    
+        void PlayJumpSound()
+        {
+            AudioManager.Instance.Play("jump");
+        }
     }
 }

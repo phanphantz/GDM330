@@ -15,7 +15,7 @@ namespace SuperGame.DoodleJump
 
         private void Start()
         {
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            playerTransform = PlayerManager.Instance.GetPlayer().transform;
             lastPlatformY = transform.position.y;
 
             GenerateInitialPlatforms();

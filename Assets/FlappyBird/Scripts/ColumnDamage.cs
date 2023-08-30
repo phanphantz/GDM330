@@ -12,7 +12,7 @@ namespace SuperGame.FlappyBird
 
         void Start()
         {
-            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Hp>();
+            playerHealth = PlayerManager.Instance.GetPlayer().GetComponent<Hp>();
         }
 
         void Update()

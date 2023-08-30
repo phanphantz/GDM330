@@ -7,26 +7,32 @@ namespace SuperGame.FlappyBird
     {
         public GameObject Player;
         public bool GameIsRunning = false;
+
+        Rigidbody2D rigidbody2D;
         
         void Start()
         {
             PauseGame();
             endMenu.SetActive(false);
+            rigidbody2D = Player.GetComponent<Rigidbody2D>();
         }
-
-
+        
         void PauseGame()
         {
             GameManager.Instance.Pause();
-            Player.GetComponent<Rigidbody2D>().gravityScale = 0;
-            GameIsRunning = false;
+            SetIsUseGravity(false);
         }
 
         public void ResumeGame()
         {
             GameManager.Instance.Resume();
-            Player.GetComponent<Rigidbody2D>().gravityScale = 1;
-            GameIsRunning = true;
+            SetIsUseGravity(true);
+        }
+
+        void SetIsUseGravity(bool isUse)
+        {
+            rigidbody2D.gravityScale = isUse ? 1 : 0;
+            GameIsRunning = isUse;
         }
 
         //---------------------------------------------------UI ZONE

@@ -12,12 +12,6 @@ namespace SuperGame
         [SerializeField] int maxLifeCount = 3;
         [SerializeField] int lifeCount;
         [SerializeField] float timeScaleToAdd = 0.1f;
-        
-        [Header("Level")]
-        [SerializeField] int currentLevel = 1;
-        [SerializeField] int currentScene = 0;
-        [SerializeField] List<string> levelList = new List<string>();
-        [SerializeField] string lastPlayedScene;
 
         [Header("UI")]
         [SerializeField] HUD hud;
@@ -40,10 +34,8 @@ namespace SuperGame
         void Reset()
         {
             lifeCount = maxLifeCount;
-            currentLevel = 1;
-            currentScene = 0;
             hud.SetLifeCount(lifeCount);
-            hud.SetLevel(currentLevel);
+            hud.SetLevel(LevelManager.Instance.CurrentLevel);
         }
         
         void SetupHUD()
@@ -51,7 +43,7 @@ namespace SuperGame
             levelEndTimer.OnDone += EndLevel;
             levelEndTimer.OnTimeChange += time => hud.SetGameEndCountdownTime(time, levelEndTimer.duration);
 
-            hud.OnNext += MoveToNextLevel;
+            hud.OnNext += LevelManager.Instance.MoveToNextLevel;
             hud.OnRestart += Restart;
         }
 
@@ -66,14 +58,14 @@ namespace SuperGame
             isGameOver = false;
             levelEndTimer.Start();
             Resume();
-            lastPlayedScene = levelList[currentScene];
+            LevelManager.Instance.SetLastPlayedLevel();
             hud.SetGameEndCountdownTime(levelEndTimer.duration, levelEndTimer.duration);
         }
 
         public void Resume()
         {
             isPaused = false;
-            var currentTimeScale = 1f + (timeScaleToAdd * ((currentLevel-1)/levelList.Count));
+            var currentTimeScale = 1f + (timeScaleToAdd * ((LevelManager.Instance.CurrentLevel-1)/(LevelManager.Instance.LevelList.Count)));
             Time.timeScale = currentTimeScale;
             bgm.pitch = currentTimeScale;
         }
@@ -109,29 +101,12 @@ namespace SuperGame
             if (lifeCount == 0)
             {
                 Reset();
-                LoadScene(levelList[0]);
+                LevelManager.Instance.LoadFirstLevel();
             }
             else
             {
-                LoadScene(levelList[currentScene]);
+                LevelManager.Instance.RestartCurrentLevel();
             }
-        }
-        
-        void MoveToNextLevel()
-        {
-            currentLevel++;
-            currentScene++;
-            if (currentScene >= levelList.Count)
-                currentScene = 0;
-            
-            hud.SetLevel(currentLevel);
-            LoadScene(levelList[currentScene]);
-        }
-
-        void LoadScene(string sceneName)
-        {
-            var loadSceneAsync = SceneManager.LoadSceneAsync(sceneName);
-            loadSceneAsync.completed += (op) => StartLevel();
         }
     }
 }
