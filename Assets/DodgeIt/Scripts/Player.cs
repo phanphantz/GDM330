@@ -7,6 +7,7 @@ namespace SuperGame.DodgeIt
     public class Player : MonoBehaviour
     {
         [SerializeField] Rigidbody2D rigidbody;
+        [SerializeField] SpriteRenderer renderer;
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] float jumpForce = 2f;
 
@@ -37,6 +38,7 @@ namespace SuperGame.DodgeIt
                 return;
 
             currentHealth--;
+            DamageEffectPlayer.Instance.PlayOn(renderer);
             if (currentHealth == 0)
             {
                 gameOverObj.SetActive(true);

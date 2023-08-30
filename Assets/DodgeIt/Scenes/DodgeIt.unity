@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1636104579}
+  renderer: {fileID: 1636104580}
   moveSpeed: 20
   jumpForce: 2
   currentHealth: 5

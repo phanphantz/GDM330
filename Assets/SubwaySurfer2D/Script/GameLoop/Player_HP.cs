@@ -8,6 +8,7 @@ namespace SuperGame.SubwaySurfer2D
     public class Player_HP : MonoBehaviour
     {
         [SerializeField] PlayerMovement move;
+        [SerializeField] SpriteRenderer renderer;
         public GameObject Player;
         public int playerHealth = 5;
         public TMP_Text HPText;
@@ -65,6 +66,7 @@ namespace SuperGame.SubwaySurfer2D
         public void TakeDamage()
         {
             playerHealth--;
+            DamageEffectPlayer.Instance.PlayOn(renderer);
             if (playerHealth == 0)
             {
                 GameManager.Instance.Lose();
