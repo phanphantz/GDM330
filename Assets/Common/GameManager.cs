@@ -30,9 +30,11 @@ namespace SuperGame
 
         protected override void InitAfterAwake()
         {
+            Pause();
             Reset();
             SetupHUD();
-            StartLevel();
+            
+            //StartLevel();
         }
         
         void Reset()
@@ -59,7 +61,7 @@ namespace SuperGame
                 levelEndTimer.PassTime();
         }
 
-        void StartLevel()
+        public void StartLevel()
         {
             isGameOver = false;
             levelEndTimer.Start();
