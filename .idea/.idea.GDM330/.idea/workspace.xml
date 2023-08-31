@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fc4cd9d-22e1-4e9f-92e3-554018f33ba3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Common/CountdownTimer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Common/CountdownTimer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Common/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Common/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Common/HUD.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Common/HUD.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GDM330/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GDM330/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DoodleJump/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DoodleJump/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scenes/gameloop.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scenes/gameloop.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Boy Advance - Pokemon FireRed LeafGreen - Interface &amp; Bag Screens.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game Boy Advance - Pokemon FireRed LeafGreen - Interface &amp; Bag Screens.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Obstacle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Obstacle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Obstacle.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Obstacle.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DodgeIt.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DodgeIt.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Inventory.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryPresenter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryPresenter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIInventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIInventory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SubwaySurfer2D/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SubwaySurfer2D/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Gameloop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FlappyBird/Scripts/Gameloop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,6 +86,7 @@
       <updated>1692878815783</updated>
       <workItem from="1692878821151" duration="5635000" />
       <workItem from="1692992273460" duration="410000" />
+      <workItem from="1693500227217" duration="316000" />
     </task>
     <servers />
   </component>

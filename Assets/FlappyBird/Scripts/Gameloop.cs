@@ -12,9 +12,9 @@ namespace SuperGame.FlappyBird
         
         void Start()
         {
+            rigidbody2D = Player.GetComponent<Rigidbody2D>();
             PauseGame();
             endMenu.SetActive(false);
-            rigidbody2D = Player.GetComponent<Rigidbody2D>();
         }
         
         void PauseGame()
