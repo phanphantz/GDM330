@@ -19,7 +19,7 @@ namespace SuperGame.FlappyBird
             SetIsIdle(true);
             if (!isDead)
             {
-                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && gameLoop.GameIsRunning)
+                if (InputManager.Instance.IsJump && gameLoop.GameIsRunning)
                 {
                     //Debug.Log("jump");
                     myRigidbody2D.velocity = new Vector2(0, 0);

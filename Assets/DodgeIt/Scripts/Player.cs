@@ -26,8 +26,8 @@ namespace SuperGame.DodgeIt
         {
             if (currentHealth <= 0)
                 return;
-        
-            var horizontalInput = Input.GetAxis("Horizontal");
+
+            var horizontalInput = InputManager.Instance.HorizontalInput;
             var moveDirection = horizontalInput * new Vector3(1, 0, 0);
             rigidbody.AddForce(moveDirection * moveSpeed);
         }

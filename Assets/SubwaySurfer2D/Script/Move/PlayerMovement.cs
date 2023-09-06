@@ -33,7 +33,7 @@ namespace SuperGame.SubwaySurfer2D
         }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (InputManager.Instance.IsLeftKeyDown)
             {
                 if (currentLine == 0)
                 {
@@ -47,7 +47,7 @@ namespace SuperGame.SubwaySurfer2D
                     right = true;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (InputManager.Instance.IsRightKeyDown)
             {
                 if (currentLine == 0)
                 {
@@ -62,7 +62,7 @@ namespace SuperGame.SubwaySurfer2D
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (InputManager.Instance.IsJump)
             {
                 AudioManager.Instance.Play("jump");
                 StartCoroutine("Jump");

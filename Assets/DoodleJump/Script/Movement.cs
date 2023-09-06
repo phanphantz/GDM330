@@ -16,8 +16,7 @@ namespace SuperGame.DoodleJump
         // Update is called once per frame
         void Update()
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-
+            horizontal = InputManager.Instance.HorizontalInput;
         }
         void FixedUpdate()
         {
