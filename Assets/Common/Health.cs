@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using SuperGame.FlappyBird;
+using UnityEngine.UI;
 
 namespace SuperGame
 {
@@ -15,7 +16,10 @@ namespace SuperGame
         [SerializeField] int currentHealth = 5;
         
         [SerializeField] SpriteRenderer renderer;
+        
+        [Header("UI")]
         [SerializeField] TMP_Text currentHealthText;
+        [SerializeField] Slider healthSlider;
         
         [Header("Flappy Bird Only")]
         [SerializeField] Movement movement;
@@ -51,7 +55,11 @@ namespace SuperGame
 
         void RefreshHealth()
         {
-            currentHealthText.text = "Health : " + currentHealth;
+            if (currentHealthText != null)
+                currentHealthText.text = "Health : " + currentHealth;
+            
+            if (healthSlider != null)
+                healthSlider.value = currentHealth / (float)maxHealth;
         }
         
         IEnumerator ApplyImmunity()
