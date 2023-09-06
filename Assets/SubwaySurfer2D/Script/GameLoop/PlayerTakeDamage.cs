@@ -4,23 +4,14 @@ namespace SuperGame.SubwaySurfer2D
 {
     public class PlayerTakeDamage : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
+        [SerializeField] int damage = 1;
+      
         void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Player")
             {
-                collision.gameObject.GetComponent<Player_HP>().TakeDamage();
+                var player = collision.gameObject.GetComponent<Player>();
+                player.Health.TakeDamage(damage);
                 Destroy(this.gameObject);
             }
         }

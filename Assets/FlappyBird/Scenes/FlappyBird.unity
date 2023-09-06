@@ -240,8 +240,8 @@ GameObject:
   - component: {fileID: 175193493}
   - component: {fileID: 175193492}
   - component: {fileID: 175193491}
-  - component: {fileID: 175193490}
   - component: {fileID: 175193497}
+  - component: {fileID: 175193498}
   m_Layer: 0
   m_Name: Birl
   m_TagString: Player
@@ -249,24 +249,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &175193490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175193489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a6d49e17e31dd4aa6f941aa14c931d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 3
-  currenthp: 0
-  moveMent: {fileID: 175193492}
-  spriteRenderer: {fileID: 0}
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
-  immunityDuration: 2
 --- !u!95 &175193491
 Animator:
   serializedVersion: 4
@@ -431,6 +413,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameloop: {fileID: 825303508}
+--- !u!114 &175193498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175193489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98a00dcda5a40adafb5c5ce191f0384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtSoundId: hurt
+  maxHealth: 3
+  immunityDuration: 2
+  currentHealth: 3
+  renderer: {fileID: 175193495}
+  currentHealthText: {fileID: 1374736757}
+  movement: {fileID: 175193492}
 --- !u!1 &330061030
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +993,7 @@ MonoBehaviour:
   startButton: {fileID: 907954552}
   endMenu: {fileID: 647881408}
   hp_text: {fileID: 1374736757}
-  life_point: {fileID: 175193490}
+  life_point: {fileID: 175193498}
 --- !u!4 &825303509
 Transform:
   m_ObjectHideFlags: 0

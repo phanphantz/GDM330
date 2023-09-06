@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SuperGame.FlappyBird
 {
     public class ColumnDamage : MonoBehaviour
     {
-        private float damage = 1f;
-        private Hp playerHealth;
+        [SerializeField] int damage = 1;
+        Health playerHealth;
         public float moveSpeed = 5f;
 
         void Start()
         {
-            playerHealth = PlayerManager.Instance.GetPlayer().GetComponent<Hp>();
+            playerHealth = PlayerManager.Instance.GetPlayer().GetComponent<Health>();
         }
 
         void Update()

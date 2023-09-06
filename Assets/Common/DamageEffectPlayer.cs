@@ -20,7 +20,7 @@ namespace SuperGame
         
         IEnumerator ChangeColorTemporarily(SpriteRenderer spriteRenderer)
         {
-            Color originalColor = spriteRenderer.color;
+            Color originalColor = Color.white;
             spriteRenderer.color = damageColor;
             yield return new WaitForSeconds(0.2f); 
             spriteRenderer.color = originalColor;

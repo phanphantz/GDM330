@@ -860,9 +860,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtSoundId: hurt
+  maxHealth: 5
+  immunityDuration: 0
   currentHealth: 5
   renderer: {fileID: 1636104580}
   currentHealthText: {fileID: 1120796292}
+  movement: {fileID: 0}
 --- !u!1 &1890962824
 GameObject:
   m_ObjectHideFlags: 0

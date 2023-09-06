@@ -20,7 +20,7 @@ namespace SuperGame.SubwaySurfer2D
         {
             if (collision.gameObject.tag == "Player")
             {
-                collision.gameObject.GetComponent<Player_HP>().GetCoins();
+                collision.gameObject.GetComponent<Player>().GetCoins();
                 Destroy(this.gameObject);
             }
         }

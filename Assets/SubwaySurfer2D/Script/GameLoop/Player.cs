@@ -5,26 +5,21 @@ using UnityEngine.SceneManagement;
 
 namespace SuperGame.SubwaySurfer2D
 {
-    public class Player_HP : MonoBehaviour
+    public class Player : MonoBehaviour
     {
+        [SerializeField] int defaultDamage = 1;
         [SerializeField] PlayerMovement move;
         [SerializeField] SpriteRenderer renderer;
-        public GameObject Player;
-        public int playerHealth = 5;
-        public TMP_Text HPText;
+
+        public Health Health => health;
+        [SerializeField] Health health;
+        
         public int coinScore = 0;
         public TMP_Text scoreText;
         // Start is called before the first frame update
         void Start()
         {
-            HealthUI();
             CoinScoreUI();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         void OnCollisionEnter2D(Collision2D other)
@@ -54,7 +49,8 @@ namespace SuperGame.SubwaySurfer2D
                         move.targetPosition = move.targetright.position;
                         move.currentLine = 1;
                     }
-                    TakeDamage();
+                    
+                    health.TakeDamage(defaultDamage);
                 }
                 else
                 {
@@ -62,30 +58,12 @@ namespace SuperGame.SubwaySurfer2D
                 }
             }
         }
-
-        public void TakeDamage()
-        {
-            playerHealth--;
-            AudioManager.Instance.Play("hurt");
-            DamageEffectPlayer.Instance.PlayOn(renderer);
-            if (playerHealth == 0)
-            {
-                GameManager.Instance.Lose();
-            }
-
-            HealthUI();
-        }
-
+        
         public void GetCoins()
         {
             coinScore = coinScore + 5;
             AudioManager.Instance.Play("coin");
             CoinScoreUI();
-        }
-
-        void HealthUI()
-        {
-            HPText.text = "Life :" + playerHealth;
         }
 
         void CoinScoreUI()

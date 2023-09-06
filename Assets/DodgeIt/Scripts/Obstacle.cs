@@ -4,6 +4,7 @@ namespace SuperGame.DodgeIt
 {
     public class Obstacle : MonoBehaviour
     {
+        [SerializeField] int damage = 1;
         [SerializeField] float speed = 3f;
        
         // Update is called once per frame
@@ -16,7 +17,7 @@ namespace SuperGame.DodgeIt
         {
             if (col.TryGetComponent<Player>(out var player))
             {
-                player.Health.TakeDamage();
+                player.Health.TakeDamage(damage);
             }
         
             Destroy(gameObject);
