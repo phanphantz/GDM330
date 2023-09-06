@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SuperGame.FlappyBird
 {
-
     public class Hp : MonoBehaviour
     {
         public float hp;
@@ -41,7 +39,8 @@ namespace SuperGame.FlappyBird
             currenthp -= damge;
             Debug.Log("Take Damege");
             StartCoroutine(ApplyImmunity()); // เริ่มการนับเวลาอมตะ
-            StartCoroutine(ChangeColorTemporarily());
+            AudioManager.Instance.Play("hurt");
+            DamageEffectPlayer.Instance.PlayOn(spriteRenderer);
             if (currenthp <= 0)
             {
                 this.moveMent.isDead = true;
@@ -54,16 +53,6 @@ namespace SuperGame.FlappyBird
             Debug.Log("Immunity");
             yield return new WaitForSeconds(immunityDuration); // รอเวลาอมตะ
             isImmune = false; // สิ้นสถานะอมตะ
-        }
-
-        private IEnumerator ChangeColorTemporarily()
-        {
-            AudioManager.Instance.Play("hurt");
-            spriteRenderer.color = damageColor; // Change to damage color
-
-            yield return new WaitForSeconds(0.2f); // Change color temporarily for 0.2 seconds
-
-            spriteRenderer.color = originalColor; // Revert to original color
         }
     }
 }
