@@ -430,7 +430,7 @@ MonoBehaviour:
   immunityDuration: 2
   currentHealth: 3
   renderer: {fileID: 175193495}
-  currentHealthText: {fileID: 1374736757}
+  ui: {fileID: 1374736759}
   movement: {fileID: 175193492}
 --- !u!1 &330061030
 GameObject:
@@ -1505,6 +1505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374736756}
   - component: {fileID: 1374736758}
+  - component: {fileID: 1374736759}
   - component: {fileID: 1374736757}
   m_Layer: 5
   m_Name: HP
@@ -1630,6 +1631,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374736755}
   m_CullTransparentMesh: 1
+--- !u!114 &1374736759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374736755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003b31d4115e4a86a368ac1f1b6c21b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealthText: {fileID: 1374736757}
 --- !u!1 &1442375040
 GameObject:
   m_ObjectHideFlags: 0
