@@ -32,11 +32,14 @@ namespace SuperGame
         {
             damageText.text = "-" + (damage * 10);
             damageText.transform.localPosition = originalPosition;
-            
+            damageText.transform.localScale = Vector3.zero;
+
+            var duration = 0.4f;
             damageText.enabled = true;
             damageText.color = Color.clear;
-            damageText.DOColor(Color.red, 1f);
-            damageText.transform.DOLocalMoveY(originalPosition.y + 10f, 1f);
+            damageText.DOColor(Color.red, duration);
+            damageText.transform.DOScale(Vector3.one, duration);
+            damageText.transform.DOLocalMoveY(originalPosition.y + 50f, duration);
         }
 
         
