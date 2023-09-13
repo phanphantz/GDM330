@@ -48,7 +48,7 @@ namespace SuperGame
             seq.Join(damageText.transform.DOScale(0f, duration));
 
             //Call a function
-            seq.AppendCallback(PlaySound);
+            // seq.AppendCallback(PlaySound);
 
             // seq.SetLoops(2, LoopType.Yoyo);
             //seq.SetEase(Ease.InSine);

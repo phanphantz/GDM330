@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace SuperGame
@@ -28,14 +29,9 @@ namespace SuperGame
 
         public void Play()
         {
-            StartCoroutine(AnimationRoutine());
-        }
-
-        IEnumerator AnimationRoutine()
-        {
-            canvasGroup.alpha = 1f;
-            yield return new WaitForSeconds(1f);
-            canvasGroup.alpha = 0;
+            var seq = DOTween.Sequence();
+            seq.Append(canvasGroup.DOFade(1f, 0.5f));
+            seq.Append(canvasGroup.DOFade(0, 1f));
         }
     }
 }

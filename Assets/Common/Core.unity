@@ -1957,6 +1957,7 @@ GameObject:
   - component: {fileID: 663842209}
   - component: {fileID: 663842211}
   - component: {fileID: 663842210}
+  - component: {fileID: 663842212}
   m_Layer: 5
   m_Name: UIDifficulty
   m_TagString: Untagged
@@ -2024,6 +2025,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663842208}
   m_CullTransparentMesh: 1
+--- !u!225 &663842212
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663842208}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &667793496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultyLevel: 1
-  difficultyUI: {fileID: 663842208}
+  difficultyUI: {fileID: 663842212}
 --- !u!1 &1602492796
 GameObject:
   m_ObjectHideFlags: 0
