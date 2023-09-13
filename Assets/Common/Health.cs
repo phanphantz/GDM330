@@ -1,8 +1,7 @@
+using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using SuperGame.FlappyBird;
-using UnityEngine.UI;
 
 namespace SuperGame
 {
@@ -16,9 +15,9 @@ namespace SuperGame
         [SerializeField] int currentHealth = 5;
         
         [SerializeField] SpriteRenderer renderer;
-
-        [Header("UI")] 
-        [SerializeField] UIHealth ui;
+        
+        public event Action<int, int> onHealthChange;
+        public event Action<int> onTakeDamage;
         
         [Header("Flappy Bird Only")]
         [SerializeField] Movement movement;
@@ -37,6 +36,7 @@ namespace SuperGame
                 return;
 
             currentHealth -= damage;
+            onTakeDamage.Invoke(damage);
             AudioManager.Instance.PlayOneShot(hurtSoundId);
             DamageEffectPlayer.Instance.PlayOn(renderer);
             RefreshHealth();
@@ -53,8 +53,8 @@ namespace SuperGame
         }
 
         void RefreshHealth()
-        {
-           ui.SetHealth(currentHealth, maxHealth);
+        { 
+            onHealthChange.Invoke(currentHealth, maxHealth);
         }
         
         IEnumerator ApplyImmunity()
