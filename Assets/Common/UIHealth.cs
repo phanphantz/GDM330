@@ -14,6 +14,11 @@ namespace SuperGame
                 health.onHealthChange += SetHealth;
         }
 
+        void OnDestroy()
+        {
+            health.onHealthChange -= SetHealth;
+        }
+
         public abstract void SetHealth(int currentHealth, int maxHealth);
     }
 }

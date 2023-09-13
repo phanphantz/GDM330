@@ -36,9 +36,11 @@ namespace SuperGame
                 return;
 
             currentHealth -= damage;
-            onTakeDamage.Invoke(damage);
+            onTakeDamage?.Invoke(damage);
+            
             AudioManager.Instance.PlayOneShot(hurtSoundId);
             DamageEffectPlayer.Instance.PlayOn(renderer);
+            
             RefreshHealth();
             if (currentHealth <= 0)
             {
@@ -54,7 +56,7 @@ namespace SuperGame
 
         void RefreshHealth()
         { 
-            onHealthChange.Invoke(currentHealth, maxHealth);
+            onHealthChange?.Invoke(currentHealth, maxHealth);
         }
         
         IEnumerator ApplyImmunity()

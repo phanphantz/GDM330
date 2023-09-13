@@ -9,10 +9,18 @@ namespace SuperGame
     {
         [SerializeField] TMP_Text damageText;
 
+        Health health;
+        
         void Awake()
         {
-            var health = FindObjectOfType<Health>();
-            health.onTakeDamage += SetDamage;
+            health = FindObjectOfType<Health>();
+            if (health != null)
+                health.onTakeDamage += SetDamage;
+        }
+
+        void OnDestroy()
+        {
+            health.onTakeDamage -= SetDamage;
         }
 
         public void SetDamage(int damage)
