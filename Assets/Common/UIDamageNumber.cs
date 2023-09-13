@@ -33,15 +33,30 @@ namespace SuperGame
             damageText.text = "-" + (damage * 10);
             damageText.transform.localPosition = originalPosition;
             damageText.transform.localScale = Vector3.zero;
-
-            var duration = 0.4f;
             damageText.enabled = true;
             damageText.color = Color.clear;
-            damageText.DOColor(Color.red, duration);
-            damageText.transform.DOScale(Vector3.one, duration);
-            damageText.transform.DOLocalMoveY(originalPosition.y + 50f, duration);
+            var duration = 0.4f;
+
+            var seq = DOTween.Sequence();
+            seq.Append(damageText.DOColor(Color.red, duration));
+            seq.Join(damageText.transform.DOScale(Vector3.one, duration));
+
+            //Delay
+            seq.AppendInterval(0.5f);
+            
+            seq.Append(damageText.transform.DOLocalMoveY(originalPosition.y + 500f, duration));
+            seq.Join(damageText.transform.DOScale(0f, duration));
+
+            //Call a function
+            seq.AppendCallback(PlaySound);
+
+            // seq.SetLoops(2, LoopType.Yoyo);
+            //seq.SetEase(Ease.InSine);
         }
 
-        
+        void PlaySound()
+        {
+            AudioManager.Instance.PlayOneShot("hurt");
+        }
     }
 }
