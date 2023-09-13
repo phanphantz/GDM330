@@ -30,7 +30,7 @@ namespace SuperGame.DoodleJump
 
         void PlayJumpSound()
         {
-            AudioManager.Instance.Play("jump");
+            AudioManager.Instance.PlayOneShot("jump");
         }
     }
 }

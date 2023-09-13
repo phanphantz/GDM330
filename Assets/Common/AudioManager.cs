@@ -7,6 +7,7 @@ namespace SuperGame
 {
     public class AudioManager : Singleton<AudioManager>
     {
+        [SerializeField] AudioSource musicSource;
         [SerializeField] AudioSource audioSource;
         [SerializeField] List<AudioRecord> recordList = new List<AudioRecord>();
         
@@ -15,7 +16,7 @@ namespace SuperGame
             
         }
 
-        public void Play(string id)
+        public void PlayOneShot(string id)
         {
             foreach (var record in recordList)
             {
@@ -26,6 +27,11 @@ namespace SuperGame
                     newAudioSource.Play();
                 }
             }
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            musicSource.volume = volume * 0.5f;
         }
     }
 

@@ -64,7 +64,7 @@ namespace SuperGame.SubwaySurfer2D
 
             if (InputManager.Instance.IsJump)
             {
-                AudioManager.Instance.Play("jump");
+                AudioManager.Instance.PlayOneShot("jump");
                 StartCoroutine("Jump");
             }
             

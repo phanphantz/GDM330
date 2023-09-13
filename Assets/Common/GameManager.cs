@@ -72,7 +72,7 @@ namespace SuperGame
 
         void EndLevel()
         {
-            AudioManager.Instance.Play("victory");
+            AudioManager.Instance.PlayOneShot("victory");
             Pause();
             hud.SetEndGameUIVisible(true, false);
         }
@@ -88,7 +88,7 @@ namespace SuperGame
             if (isGameOver)
                 return;
 
-            AudioManager.Instance.Play("lose");
+            AudioManager.Instance.PlayOneShot("lose");
             isGameOver = true;
             Pause();
             lifeCount--;
@@ -100,13 +100,18 @@ namespace SuperGame
         {
             if (lifeCount == 0)
             {
-                Reset();
-                LevelManager.Instance.LoadFirstLevel();
+                ResetProgress();
             }
             else
             {
                 LevelManager.Instance.RestartCurrentLevel();
             }
+        }
+
+        public void ResetProgress()
+        {
+            Reset();
+            LevelManager.Instance.LoadFirstLevel();
         }
     }
 }

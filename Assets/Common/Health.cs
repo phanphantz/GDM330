@@ -37,7 +37,7 @@ namespace SuperGame
                 return;
 
             currentHealth -= damage;
-            AudioManager.Instance.Play(hurtSoundId);
+            AudioManager.Instance.PlayOneShot(hurtSoundId);
             DamageEffectPlayer.Instance.PlayOn(renderer);
             RefreshHealth();
             if (currentHealth <= 0)
