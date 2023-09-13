@@ -27,7 +27,6 @@ namespace SuperGame
             Pause();
             Reset();
             SetupHUD();
-            
             //StartLevel();
         }
         

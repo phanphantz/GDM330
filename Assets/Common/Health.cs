@@ -18,6 +18,7 @@ namespace SuperGame
         
         public event Action<int, int> onHealthChange;
         public event Action<int> onTakeDamage;
+        public event Action onDie;
         
         [Header("Flappy Bird Only")]
         [SerializeField] Movement movement;
@@ -28,6 +29,8 @@ namespace SuperGame
         {
             currentHealth = maxHealth;
             RefreshHealth();
+            onTakeDamage += PlayTakeDamageEffect;
+            onDie += OnDieEffect;
         }
 
         public void TakeDamage(int damage)
@@ -37,21 +40,28 @@ namespace SuperGame
 
             currentHealth -= damage;
             onTakeDamage?.Invoke(damage);
-            
-            AudioManager.Instance.PlayOneShot(hurtSoundId);
-            DamageEffectPlayer.Instance.PlayOn(renderer);
-            
             RefreshHealth();
             if (currentHealth <= 0)
             {
-                GameManager.Instance.Lose();
-                if (movement != null)
-                    movement.isDead = true;
+                onDie?.Invoke();
             }
             else
             {
                 StartCoroutine(ApplyImmunity());
             }
+        }
+
+        void PlayTakeDamageEffect(int damage)
+        {
+            AudioManager.Instance.PlayOneShot(hurtSoundId);
+            DamageEffectPlayer.Instance.PlayOn(renderer);
+        }
+
+        void OnDieEffect()
+        {
+            GameManager.Instance.Lose();
+            if (movement != null)
+                movement.isDead = true;
         }
 
         void RefreshHealth()
