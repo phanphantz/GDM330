@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScoreList: []
   savePath: Configs/PlayerScore/score.json
+  onlineLoadPath: https://drive.google.com/uc?export=download&id=1FOTB2hf5_wJPpEpORhxMCJtOCg3RgoAO
   scoreParent: {fileID: 1400985102}
   scoreUIPrefab: {fileID: 1214540189}
   scoreUIList: []

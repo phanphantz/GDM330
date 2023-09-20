@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace SuperGame.Leaderboard
 {
@@ -12,6 +14,7 @@ namespace SuperGame.Leaderboard
 
         [Header("Saving")] 
         [SerializeField] string savePath;
+        [SerializeField] string onlineLoadPath;
         
         [Header("UI")] [SerializeField] Transform scoreParent;
         [SerializeField] UIPlayerScore scoreUIPrefab;
@@ -65,6 +68,29 @@ namespace SuperGame.Leaderboard
 
             var scoreJson = File.ReadAllText(targetFilePath);
             playerScoreList = JsonConvert.DeserializeObject<List<PlayerScoreData>>(scoreJson);
+        }
+
+        [ContextMenu(nameof(LoadScoreFromGoogleDrive))]
+        void LoadScoreFromGoogleDrive()
+        {
+            StartCoroutine(LoadScoreRoutine(onlineLoadPath));
+        }
+
+        IEnumerator LoadScoreRoutine(string url)
+        {
+            var webRequest = UnityWebRequest.Get(url);
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(webRequest.error);
+            }
+            else
+            {
+                var downloadedText = webRequest.downloadHandler.text;
+                Debug.Log("Receive Data : " + downloadedText);
+                playerScoreList = JsonConvert.DeserializeObject<List<PlayerScoreData>>(downloadedText);
+            }
         }
         
         void Awake()
