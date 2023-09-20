@@ -5127,9 +5127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelEndTimer:
     duration: 10
-  maxLifeCount: 3
+  config: {fileID: 11400000, guid: ac60431d43d564cc783723c164234545, type: 2}
   lifeCount: 3
-  timeScaleToAdd: 0.25
   hud: {fileID: 213361561}
   bgm: {fileID: 2049417092}
 --- !u!4 &2049417091

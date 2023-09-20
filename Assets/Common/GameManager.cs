@@ -9,9 +9,8 @@ namespace SuperGame
     {
         [Header("Gameplay")]
         [SerializeField] CountdownTimer levelEndTimer;
-        [SerializeField] int maxLifeCount = 3;
+        [SerializeField] GameplayConfig config;
         [SerializeField] int lifeCount;
-        [SerializeField] float timeScaleToAdd = 0.1f;
 
         [Header("UI")]
         [SerializeField] HUD hud;
@@ -27,12 +26,12 @@ namespace SuperGame
             Pause();
             Reset();
             SetupHUD();
-            //StartLevel();
+            levelEndTimer.duration = config.countdownDuration;
         }
         
         void Reset()
         {
-            lifeCount = maxLifeCount;
+            lifeCount = config.maxLifeCount;
             hud.SetLifeCount(lifeCount);
             hud.SetLevel(LevelManager.Instance.CurrentLevel);
         }
@@ -64,7 +63,7 @@ namespace SuperGame
         public void Resume()
         {
             isPaused = false;
-            var currentTimeScale = 1f + (timeScaleToAdd * ((LevelManager.Instance.CurrentLevel-1)/(LevelManager.Instance.LevelList.Count)));
+            var currentTimeScale = 1f + (config.timeScaleToAdd * ((LevelManager.Instance.CurrentLevel-1)/(LevelManager.Instance.LevelList.Count)));
             Time.timeScale = currentTimeScale;
             bgm.pitch = currentTimeScale;
         }
