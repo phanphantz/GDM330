@@ -43,6 +43,29 @@ namespace SuperGame.Leaderboard
             
             File.WriteAllText(targetFilePath, scoreJson);
         }
+
+        [ContextMenu(nameof(LoadScoreData))]
+        void LoadScoreData()
+        {
+            var dataPath = Application.dataPath;
+            var targetFilePath = Path.Combine(dataPath,savePath);
+            
+            var directoryPath = Path.GetDirectoryName(targetFilePath);
+            if (Directory.Exists(directoryPath) == false)
+            {
+                Debug.LogError("No save folder at provided path");
+                return;
+            }
+
+            if (File.Exists(targetFilePath) == false)
+            {
+                Debug.LogError("No save file at provided path");
+                return;
+            }
+
+            var scoreJson = File.ReadAllText(targetFilePath);
+            playerScoreList = JsonConvert.DeserializeObject<List<PlayerScoreData>>(scoreJson);
+        }
         
         void Awake()
         {

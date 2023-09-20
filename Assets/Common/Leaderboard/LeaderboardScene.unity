@@ -245,19 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030573a5b5de4b458e8ce55aebfa9bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScoreList:
-  - username: Tuu
-    order: 1
-    score: 4500
-    star: 5
-  - username: Pom
-    order: 2
-    score: 3000
-    star: 3
-  - username: LenaJung
-    order: 3
-    score: 1000
-    star: 2
+  playerScoreList: []
   savePath: Configs/PlayerScore/score.json
   scoreParent: {fileID: 1400985102}
   scoreUIPrefab: {fileID: 1214540189}
