@@ -1430,17 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2049417092}
   audioSource: {fileID: 878787087}
-  recordList:
-  - id: hurt
-    clip: {fileID: 8300000, guid: ff3d610c6c1114fbbbae3b39569ef7b0, type: 3}
-  - id: victory
-    clip: {fileID: 8300000, guid: 2790e3bf4aab34534ba22ee952e8c260, type: 3}
-  - id: lose
-    clip: {fileID: 8300000, guid: 7c0a9703fa357405d8640ed1b4e33a22, type: 3}
-  - id: coin
-    clip: {fileID: 8300000, guid: 6a945e61586fc4184857e39f8cdd7f70, type: 3}
-  - id: jump
-    clip: {fileID: 8300000, guid: f4f2dfcec5cb74fbd9118a4c4eee3ebc, type: 3}
+  database: {fileID: 11400000, guid: b078bd14c26dc47578662ab8c9783d11, type: 2}
 --- !u!4 &506294595
 Transform:
   m_ObjectHideFlags: 0

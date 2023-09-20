@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using PhEngine.Core;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace SuperGame
     {
         [SerializeField] AudioSource musicSource;
         [SerializeField] AudioSource audioSource;
-        [SerializeField] List<AudioRecord> recordList = new List<AudioRecord>();
+        [SerializeField] SoundDatabase database;
         
         protected override void InitAfterAwake()
         {
@@ -18,7 +17,7 @@ namespace SuperGame
 
         public void PlayOneShot(string id)
         {
-            foreach (var record in recordList)
+            foreach (var record in database.recordList)
             {
                 if (record.id == id)
                 {
