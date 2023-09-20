@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -18,6 +19,16 @@ namespace SuperGame.Leaderboard
         {
             var scoreJson = JsonConvert.SerializeObject(playerScoreList);
             Debug.Log(scoreJson);
+        }
+
+        [ContextMenu(nameof(SaveScoreData))]
+        void SaveScoreData()
+        {
+            var scoreJson = JsonConvert.SerializeObject(playerScoreList);
+            var dataPath = Application.dataPath;
+            var directoryPath = "score.json";
+            var targetFilePath = Path.Combine(dataPath,directoryPath);
+            File.WriteAllText(targetFilePath, scoreJson);
         }
         
         void Awake()
