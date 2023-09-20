@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace SuperGame.Leaderboard
 {
-    [CreateAssetMenu(menuName = "SuperGame/PlayerScoreData" , fileName = "PlayerScoreData")]
-    public class PlayerScoreData : ScriptableObject
+    [Serializable]
+    public class PlayerScoreData 
     {
         public string username;
         public int order;

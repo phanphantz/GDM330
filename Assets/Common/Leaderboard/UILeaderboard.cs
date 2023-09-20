@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace SuperGame.Leaderboard
@@ -12,6 +12,13 @@ namespace SuperGame.Leaderboard
         [Header("UI")] [SerializeField] Transform scoreParent;
         [SerializeField] UIPlayerScore scoreUIPrefab;
         [SerializeField] List<UIPlayerScore> scoreUIList = new List<UIPlayerScore>();
+
+        [ContextMenu(nameof(TestJsonConvert))]
+        void TestJsonConvert()
+        {
+            var scoreJson = JsonConvert.SerializeObject(playerScoreList);
+            Debug.Log(scoreJson);
+        }
         
         void Awake()
         {
