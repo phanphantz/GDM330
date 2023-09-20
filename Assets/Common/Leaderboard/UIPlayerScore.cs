@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +8,16 @@ namespace SuperGame.Leaderboard
     public class UIPlayerScore : MonoBehaviour
     {
         [SerializeField] TMP_Text orderText;
+        [SerializeField] Image photoImage;
         [SerializeField] TMP_Text usernameText;
         [SerializeField] TMP_Text scoreText;
         [SerializeField] List<Image> starList = new List<Image>();
 
+        public void SetPhoto(Sprite photo)
+        {
+            photoImage.sprite = photo;
+        }
+        
         public void SetData(PlayerScoreData data)
         {
             orderText.text = data.order.ToString();

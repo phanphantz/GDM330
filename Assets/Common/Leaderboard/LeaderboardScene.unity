@@ -245,7 +245,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030573a5b5de4b458e8ce55aebfa9bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScoreList: []
+  playerScoreList:
+  - username: Tutor
+    profileUrl: https://scontent.fbkk3-4.fna.fbcdn.net/v/t1.6435-9/116691853_1009304539492215_6489771344128971435_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFH0gx4Q4mGXtkSPk865l3dr0hlr6tfYuOvSGWvq19i48JvcCE4W_kpoI5kGFse6h9oavve9RfcxRZpm_LJiufy&_nc_ohc=tF4kEfn9FDkAX9cytR_&_nc_ht=scontent.fbkk3-4.fna&oh=00_AfArcUzZIVHrsWCcHY2BGp8kZRJz73O93tSpaLvJ_xXSLg&oe=6532021C
+    order: 1
+    score: 80000
+    star: 5
+  - username: Aom
+    profileUrl: https://scontent.fbkk4-3.fna.fbcdn.net/v/t39.30808-1/239723859_4585202271598888_4476016060617625287_n.jpg?stp=c0.25.200.200a_dst-jpg_p200x200&_nc_cat=100&ccb=1-7&_nc_sid=fe8171&_nc_eui2=AeFw_xyrzZJ-TRR_pu2PjuOyMg-rr7YbYjAyD6uvthtiMAnGF66-kQ3Vmdsg3yJRMok0xwMjRGIufl0U9_DaOuDP&_nc_ohc=Uk13KSEkaCQAX9J9B9W&_nc_ht=scontent.fbkk4-3.fna&oh=00_AfBM_mDFqwgiPZFsh5nuy70GS9QmfyhNcU1VY1mztgx-4Q&oe=650F2AE2
+    order: 2
+    score: 3000
+    star: 3
+  - username: Pond (LenaJang)
+    profileUrl: https://scontent.fbkk3-2.fna.fbcdn.net/v/t39.30808-6/376812687_1441201726702029_4082098007936752278_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeEdJwvtol-Lu84tScRrp5-D2GkuLaRuSlPYaS4tpG5KU2nO2tns1TbE-LnywUOY3QCier7xyoudUbk6brduup23&_nc_ohc=cf48xUdclq8AX-0fnLQ&_nc_zt=23&_nc_ht=scontent.fbkk3-2.fna&oh=00_AfBLBu0tvbktwp0ULZKFVebftqHj6T7bPWp6IyN5LXLEOA&oe=650F59BF
+    order: 3
+    score: 1000
+    star: 2
   savePath: Configs/PlayerScore/score.json
   onlineLoadPath: https://drive.google.com/uc?export=download&id=1FOTB2hf5_wJPpEpORhxMCJtOCg3RgoAO
   scoreParent: {fileID: 1400985102}
@@ -430,6 +445,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420558541}
+  m_CullTransparentMesh: 1
+--- !u!1 &442493639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442493640}
+  - component: {fileID: 442493642}
+  - component: {fileID: 442493641}
+  m_Layer: 5
+  m_Name: Image_Photo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &442493640
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442493639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1214540186}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -602, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &442493641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442493639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &442493642
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442493639}
   m_CullTransparentMesh: 1
 --- !u!1 &771431029
 GameObject:
@@ -863,6 +954,7 @@ RectTransform:
   - {fileID: 2005854316}
   - {fileID: 2101139521}
   - {fileID: 1172154951}
+  - {fileID: 442493640}
   m_Father: {fileID: 1400985102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -922,6 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderText: {fileID: 1377832413}
+  photoImage: {fileID: 442493641}
   usernameText: {fileID: 2005854317}
   scoreText: {fileID: 2101139522}
   starList:
@@ -1117,8 +1210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 99.92383, y: -3}
-  m_SizeDelta: {x: 153.72162, y: 121.1976}
+  m_AnchoredPosition: {x: 75.90582, y: -3}
+  m_SizeDelta: {x: 105.6856, y: 121.1976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377832413
 MonoBehaviour:
@@ -1633,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 493.84268, y: -3}
+  m_AnchoredPosition: {x: 568, y: -3}
   m_SizeDelta: {x: 596.1829, y: 121.1976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005854317

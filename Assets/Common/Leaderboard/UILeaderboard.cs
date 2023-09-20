@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using PhEngine.Core;
 
 namespace SuperGame.Leaderboard
 {
@@ -79,6 +81,10 @@ namespace SuperGame.Leaderboard
         IEnumerator LoadScoreRoutine(string url)
         {
             var webRequest = UnityWebRequest.Get(url);
+            
+            //Get download progress
+            //var progress = webRequest.downloadProgress;
+            
             yield return webRequest.SendWebRequest();
 
             if (webRequest.result != UnityWebRequest.Result.Success)
@@ -90,6 +96,28 @@ namespace SuperGame.Leaderboard
                 var downloadedText = webRequest.downloadHandler.text;
                 Debug.Log("Receive Data : " + downloadedText);
                 playerScoreList = JsonConvert.DeserializeObject<List<PlayerScoreData>>(downloadedText);
+            }
+        }
+
+        IEnumerator LoadPhotoFromUrl(string url, Action<Sprite> onReceivePhoto)
+        {
+            if (string.IsNullOrEmpty(url))
+                yield break;
+            
+            var webRequest = UnityWebRequest.Get(url);
+            yield return webRequest.SendWebRequest();
+            
+            if (webRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(webRequest.error);
+            }
+            else
+            {
+                byte[] bytes = webRequest.downloadHandler.data;
+                Texture2D texture = new Texture2D(100, 100);
+                texture.LoadImage(bytes);
+                var sprite = SpriteCreator.CreateFromTexture(texture);
+                onReceivePhoto?.Invoke(sprite);
             }
         }
         
@@ -123,6 +151,9 @@ namespace SuperGame.Leaderboard
                 var newUI = Instantiate(scoreUIPrefab, scoreParent, false);
                 newUI.gameObject.SetActive(true);
                 newUI.SetData(playerScoreList[i]);
+
+                var photoUrl = playerScoreList[i].profileUrl;
+                StartCoroutine(LoadPhotoFromUrl(photoUrl, newUI.SetPhoto));
                 scoreUIList.Add(newUI);
             }
         }
