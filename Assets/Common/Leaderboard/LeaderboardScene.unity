@@ -258,6 +258,7 @@ MonoBehaviour:
     order: 3
     score: 1000
     star: 2
+  savePath: Configs/PlayerScore/score.json
   scoreParent: {fileID: 1400985102}
   scoreUIPrefab: {fileID: 1214540189}
   scoreUIList: []

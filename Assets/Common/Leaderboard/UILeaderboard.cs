@@ -10,6 +10,9 @@ namespace SuperGame.Leaderboard
         [Header("Data")]
         [SerializeField] List<PlayerScoreData> playerScoreList = new List<PlayerScoreData>();
 
+        [Header("Saving")] 
+        [SerializeField] string savePath;
+        
         [Header("UI")] [SerializeField] Transform scoreParent;
         [SerializeField] UIPlayerScore scoreUIPrefab;
         [SerializeField] List<UIPlayerScore> scoreUIList = new List<UIPlayerScore>();
@@ -24,10 +27,20 @@ namespace SuperGame.Leaderboard
         [ContextMenu(nameof(SaveScoreData))]
         void SaveScoreData()
         {
+            if (string.IsNullOrEmpty(savePath))
+            {
+                Debug.LogError("No save path ja");
+                return;
+            }
+            
             var scoreJson = JsonConvert.SerializeObject(playerScoreList);
             var dataPath = Application.dataPath;
-            var directoryPath = "score.json";
-            var targetFilePath = Path.Combine(dataPath,directoryPath);
+            var targetFilePath = Path.Combine(dataPath,savePath);
+
+            var directoryPath = Path.GetDirectoryName(targetFilePath);
+            if (Directory.Exists(directoryPath) == false)
+                Directory.CreateDirectory(directoryPath);
+            
             File.WriteAllText(targetFilePath, scoreJson);
         }
         
