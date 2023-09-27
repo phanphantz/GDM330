@@ -96,6 +96,7 @@ namespace SuperGame.Leaderboard
                 var downloadedText = webRequest.downloadHandler.text;
                 Debug.Log("Receive Data : " + downloadedText);
                 playerScoreList = JsonConvert.DeserializeObject<List<PlayerScoreData>>(downloadedText);
+                Refresh();
             }
         }
 
