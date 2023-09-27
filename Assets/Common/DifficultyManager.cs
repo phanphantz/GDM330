@@ -9,6 +9,8 @@ namespace SuperGame
         public int DifficultyLevel => difficultyLevel;
         [SerializeField] int difficultyLevel;
         [SerializeField] CanvasGroup difficultyUI;
+
+        string scaleAnimationId = "scaleAnimation";
         
         protected override void InitAfterAwake()
         {
@@ -19,6 +21,12 @@ namespace SuperGame
                 .DOFade(1f, 1f)
                 .OnComplete(FadeInFinish)
                 .SetUpdate(true);
+
+            difficultyUI.transform
+                .DOScale(0.7f, 1f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetUpdate(true)
+                .SetId(scaleAnimationId);
         }
 
         void FadeInFinish()
@@ -28,6 +36,8 @@ namespace SuperGame
 
         public void SelectDifficultyLevel(int value)
         {
+            DOTween.Kill(scaleAnimationId, true);
+            
             difficultyLevel = value;
             difficultyUI.blocksRaycasts = false;
             difficultyUI
